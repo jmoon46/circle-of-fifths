@@ -1,0 +1,89 @@
+    Music Theorayyy
+
+    notes = [C C# D D# E F F# G G# A A# B C C# D D# E F F# G G# A A# B]
+    
+    C          d          e          F          G          a          b
+    Major      Dorian     Phrygian   Lydian     Mixolydian Minor      Locrian
+    2          2          1          2          2          2          1
+    I          ii         iii        IV         V          vi         vii
+
+    C D E F G A B
+
+    TODO:
+
+    
+
+
+    Transpose chords/music
+
+
+    Different types of chords:
+    Major
+    Minor
+    Sus2 + Sus4
+    Maj6
+    7(min7)
+    Maj7
+    add9
+    add11
+    add13
+
+
+
+    majorPattern = [2,2,1,2,2,2,1]
+    minorPattern = 2122122
+
+   
+    let startNote = userInput
+
+    let startNoteIndex = notes.indexOf(startNote)
+
+    i = 0
+    x = 0
+
+    scaleArray = []
+
+
+    7.times do |i|  
+        
+        scaleArray << notes[x + majorPattern[i]]
+
+        x = x + majorPattern[i]
+
+        i++
+    end
+
+
+
+    If adding sharps: last note of array becomes sharp
+    If adding flats: 
+
+
+    Sharp Direction:
+
+    cMajor = C D E F G A B
+
+    g = G A B C D E F#
+
+    d = D E F# G A B C#
+
+    a = A B C# D E F# G#
+
+    g[6] += "#"
+
+-----------------------------
+    Flat Direction:
+
+    cMajor = C D E F G A B
+
+    F = F G A Bb C D E
+
+    Bb = Bb C D Eb F G A
+
+minor - if input contains # or if it's E or B then go sharp direction else go flat
+major - if input contains b or if it's F then go flat direction else go sharp
+
+
+    a Minor = A B C D E F G
+
+    d Minor = D E F G A Bb C
