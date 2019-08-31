@@ -74,5 +74,11 @@ const getMajorChord = startNote => {
   return majorChord;
 };
 
+const getMinorChord = startNote => {
+  const minorScale = getMinorScale(startNote);
+  const minorChord = [minorScale[0], minorScale[2], minorScale[4]];
+  return minorChord;
+}
+
 console.log(getMajorScale('A#'));
 console.log(getMinorScale('F'));
