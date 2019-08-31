@@ -11,9 +11,14 @@
 
     C D E F G A B
 
+    A B C D E F G
+    A B C D E F G#
+
     TODO:
 
-    
+    Harmonic Minor 2122131
+    Pentatonic
+    Melodic Minor (maybe)
 
 
     Transpose chords/music

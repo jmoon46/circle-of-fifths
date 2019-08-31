@@ -68,17 +68,6 @@ const addMinorAccent = (scale, flatStatus) => {
   scale[1] += '#';
 };
 
-const getMajorChord = startNote => {
-  const majorScale = getMajorScale(startNote);
-  const majorChord = [majorScale[0], majorScale[2], majorScale[4]];
-  return majorChord;
+module.exports = {
+  getMajorScale, getMinorScale, majorNotes, minorNotes
 };
-
-const getMinorChord = startNote => {
-  const minorScale = getMinorScale(startNote);
-  const minorChord = [minorScale[0], minorScale[2], minorScale[4]];
-  return minorChord;
-}
-
-console.log(getMajorScale('A#'));
-console.log(getMinorScale('F'));
