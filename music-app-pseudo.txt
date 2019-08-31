@@ -11,12 +11,14 @@
 
     C D E F G A B
 
-    A B C D E F G
-    A B C D E F G#
+
 
     TODO:
 
     Harmonic Minor 2122131
+        A B C D E F G
+        A B C D E F G#
+
     Pentatonic
     Melodic Minor (maybe)
 
