@@ -1,5 +1,10 @@
 const majorNotes = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
+const dorianNotes = ['D', 'E', 'F', 'G', 'A', 'B', 'C'];
+const phrygianNotes = ['E', 'F', 'G', 'A', 'B', 'C', 'D'];
+const lydianNotes = ['F', 'G', 'A', 'B', 'C', 'D', 'E'];
+const mixolydianNotes = ['G', 'A', 'B', 'C', 'D', 'E', 'F'];
 const minorNotes = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+const locrianNotes = ['B', 'C', 'D', 'E', 'F', 'G', 'A'];
 
 const getMajorScale = endNote => {
   const newScale = [...majorNotes];
@@ -19,6 +24,46 @@ const getMajorScale = endNote => {
   return newScale;
 };
 
+// const getDorianScale = endNote => {
+//   const newScale = [...dorianNotes];
+//   if () {
+
+//   } else {
+
+//   }
+//   return newScale;
+// };
+
+// const getPhrygianScale = endNote => {
+//   const newScale = [...phrygianNotes];
+//   if () {
+
+//   } else {
+    
+//   }
+//   return newScale;
+// };
+
+// const getLydianScale = endNote => {
+//   const newScale = [...lydianNotes];
+//   if () {
+
+//   } else {
+    
+//   }
+//   return newScale;
+// };
+
+// const getMixolydianScale = endNote => {
+//   const newScale = [...mixolydianNotes];
+//   if () {
+
+//   } else {
+    
+//   }
+//   return newScale;
+// };
+
 const getMinorScale = endNote => {
   const newScale = [...minorNotes];
   if (endNote === 'E' || endNote === 'B' || endNote.includes('#')) {
@@ -36,6 +81,29 @@ const getMinorScale = endNote => {
   }
   return newScale;
 };
+
+// const getLocrianScale = endNote => {
+//   const newScale = [...locrianNotes];
+//   if () {
+
+//   } else {
+    
+//   }
+//   return newScale;
+// };
+
+// C D E F G A B        C D E F G A B
+// G A B C D E F#       F G A Bb C D E
+// D E F# G A B C#      Bb C D Eb F G A
+
+// D E F G A B C        D E F G A B C
+// A B C D E F# G       G A Bb C D E F
+// E F# G A B C# D
+
+// const Key = {
+//  "C": "C",
+//  "C#/Db": ["C#", "Db"]
+// }
 
 const shiftArray = (array, flatStatus) => {
   if (flatStatus === false) {

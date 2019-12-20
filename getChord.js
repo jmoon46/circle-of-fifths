@@ -83,6 +83,19 @@ const getMajorSevenChord = startNote => {
 }
 
 
-majorNotes.forEach(x => {
-  console.log(getMajorSevenChord(x));
-});
+
+const getAllChordsForMode = (modeArray) => {
+  newArray = [];
+  modeArray.forEach((note, i) => {
+    if (i === 1 || i === 2 || i === 5) {
+      newArray.push(note += "m")
+    } else if (i === 6) {
+      newArray.push(note += "dim")
+    } else {
+      newArray.push(note)
+    }
+  });
+  console.log(newArray)
+}
+
+getAllChordsForMode(majorNotes)

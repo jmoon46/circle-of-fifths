@@ -11,7 +11,8 @@
 
     C D E F G A B
 
-
+    Csus2maj6add9
+    1 2 5 6 9
 
     TODO:
 
@@ -98,3 +99,21 @@ major - if input contains b or if it's F then go flat direction else go sharp
     a Minor = A B C D E F G
 
     d Minor = D E F G A Bb C
+
+
+chords in key with things:
+    (in C Major as example)
+    C  D   E  F G A  B
+    I ii iii IV V vi vii
+
+    things in key:
+    major: 1 4 5
+    minor: 2 3 6
+    sus2: 1 2 4 5 6
+    sus4: 1 2 3 5 6
+    diminished: 7
+    minor six: 3 6
+    major six: 1 4 5
+    7 chord: 5
+    minor seven: 2 3 6
+    major seven: 1 4
