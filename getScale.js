@@ -13,24 +13,24 @@ const locrianNotes = ['B', 'C', 'D', 'E', 'F', 'G', 'A'];
 
 const Modes = { 
   "Major": 0,
-  "Dorian": 1,
-  "Phrygian": 2,
-  "Lydian": 3,
-  "Mixolydian": 4,
-  "Minor": 5,
-  "Locrian": 6
+  "Dorian": 6,
+  "Phrygian": 5,
+  "Lydian": 4,
+  "Mixolydian": 3,
+  "Minor": 2,
+  "Locrian": 1
 };
 // vvv dynamically shifting the above scales instead of writing them all vvv
 const shiftForMode = ((startScale, mode) => {
-  console.log(startScale)
   for (i = 0; i < Modes[mode]; i++) {
     let x = startScale.pop();
     startScale.unshift(x);
-    }
-  console.log(startScale);
-})
+  }
+  console.log(startScale)
+});
 
-shiftForMode((majorNotes, "Dorian"));
+
+shiftForMode(majorNotes, "Dorian");
 
 const getMajorScale = endNote => {
   const newScale = [...majorNotes];
