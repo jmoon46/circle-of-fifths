@@ -6,6 +6,32 @@ const mixolydianNotes = ['G', 'A', 'B', 'C', 'D', 'E', 'F'];
 const minorNotes = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
 const locrianNotes = ['B', 'C', 'D', 'E', 'F', 'G', 'A'];
 
+// maybe put mode names in an array and use index to shift the array properly
+// const Modes = { "Major": "1", "Dorian": "2" }
+// example: shiftForMode("dorian") => { array.unshift(Modes["dorian"]) }
+
+
+const Modes = { 
+  "Major": 0,
+  "Dorian": 1,
+  "Phrygian": 2,
+  "Lydian": 3,
+  "Mixolydian": 4,
+  "Minor": 5,
+  "Locrian": 6
+};
+// vvv dynamically shifting the above scales instead of writing them all vvv
+const shiftForMode = ((startScale, mode) => {
+  console.log(startScale)
+  for (i = 0; i < Modes[mode]; i++) {
+    let x = startScale.pop();
+    startScale.unshift(x);
+    }
+  console.log(startScale);
+})
+
+shiftForMode((majorNotes, "Dorian"));
+
 const getMajorScale = endNote => {
   const newScale = [...majorNotes];
   if (endNote === 'F' || endNote.includes('b')) {

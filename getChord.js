@@ -98,4 +98,4 @@ const getAllChordsForMode = (modeArray) => {
   console.log(newArray)
 }
 
-getAllChordsForMode(majorNotes)
+getAllChordsForMode(getMajorScale("D"));
