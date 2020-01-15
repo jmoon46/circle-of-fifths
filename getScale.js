@@ -98,15 +98,21 @@ const getLydianScale = endNote => {
   return newScale;
 };
 
-// const getMixolydianScale = endNote => {
-//   const newScale = [...mixolydianNotes];
-//   if () {
-
-//   } else {
-    
-//   }
-//   return newScale;
-// };
+const getMixolydianScale = endNote => {
+  const newScale = [...mixolydianNotes];
+  if (endNote === 'C' || endNote === 'F' || endNote.includes('b')) {
+    while (newScale[0] !== endNote) {
+      shiftArray(newScale, true);
+      addMixolydianAccent(newScale, true);
+    }
+  } else {
+    while (newScale[0] !== endNote) {
+      shiftArray(newScale, false);
+      addMixolydianAccent(newScale, false);
+    }
+  }
+  return newScale;
+};
 
 const getMinorScale = endNote => {
   const newScale = [...minorNotes];
@@ -198,6 +204,14 @@ const addLydianAccent = (scale, flatStatus) => {
   scale[3] += '#';
 }
 
+const addMixolydianAccent = (scale, flatStatus) => {
+  if(flatStatus === true) {
+    scale[6] += 'b';
+    return
+  }
+  scale[2] += '#';
+}
+
 const addMinorAccent = (scale, flatStatus) => {
   if (flatStatus === true) {
     scale[5] += 'b';
@@ -210,7 +224,7 @@ module.exports = {
   getMajorScale, getMinorScale, majorNotes, minorNotes
 };
 
-console.log(getLydianScale('F'));
-console.log(getLydianScale('C'));
-console.log(getLydianScale('Ab'));
-console.log(getLydianScale('B'));
+console.log(getMixolydianScale('G'));
+console.log(getMixolydianScale('D'));
+console.log(getMixolydianScale('Bb'));
+console.log(getMixolydianScale('F#'));
