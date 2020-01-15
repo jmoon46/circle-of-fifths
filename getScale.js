@@ -132,15 +132,21 @@ const getMinorScale = endNote => {
   return newScale;
 };
 
-// const getLocrianScale = endNote => {
-//   const newScale = [...locrianNotes];
-//   if () {
-
-//   } else {
-    
-//   }
-//   return newScale;
-// };
+const getLocrianScale = endNote => {
+  const newScale = [...locrianNotes];
+  if (endNote.includes('#')) {
+    while (newScale[0] !== endNote) {
+      shiftArray(newScale, false);
+      addLocrianAccent(newScale, false);
+    }
+  } else {
+    while (newScale[0] !== endNote) {
+      shiftArray(newScale, true);
+      addLocrianAccent(newScale, true);
+    }
+  }
+  return newScale;
+};
 
 // C D E F G A B        C D E F G A B
 // G A B C D E F#       F G A Bb C D E
@@ -220,11 +226,19 @@ const addMinorAccent = (scale, flatStatus) => {
   scale[1] += '#';
 };
 
+const addLocrianAccent = (scale, flatStatus) => {
+  if (flatStatus === false) {
+    scale[0] += '#';
+    return
+  }
+  scale[4] += 'b';
+}
+
 module.exports = {
   getMajorScale, getMinorScale, majorNotes, minorNotes
 };
 
-console.log(getMixolydianScale('G'));
-console.log(getMixolydianScale('D'));
-console.log(getMixolydianScale('Bb'));
-console.log(getMixolydianScale('F#'));
+console.log(getLocrianScale('B'));
+console.log(getLocrianScale('C#'));
+console.log(getLocrianScale('D'));
+console.log(getLocrianScale('A#'));
