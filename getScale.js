@@ -66,15 +66,21 @@ const getDorianScale = endNote => {
   return newScale;
 };
 
-// const getPhrygianScale = endNote => {
-//   const newScale = [...phrygianNotes];
-//   if () {
-
-//   } else {
-    
-//   }
-//   return newScale;
-// };
+const getPhrygianScale = endNote => {
+  const newScale = [...phrygianNotes];
+  if (endNote === 'B' || endNote.includes('#')) {
+    while (newScale[0] !== endNote) {
+      shiftArray(newScale, false);
+      addPhrygianAccent(newScale, false);
+    }
+  } else {
+    while (newScale[0] !== endNote) {
+      shiftArray(newScale, true);
+      addPhrygianAccent(newScale, true);
+    }
+  }
+  return newScale;
+};
 
 // const getLydianScale = endNote => {
 //   const newScale = [...lydianNotes];
@@ -139,6 +145,7 @@ const getMinorScale = endNote => {
 
 const shiftArray = (array, flatStatus) => {
   if (flatStatus === false) {
+    // changes the notes to start from the fifth
     for (i = 0; i < 3; i++) {
       x = array.pop();
       array.unshift(x);
@@ -146,6 +153,7 @@ const shiftArray = (array, flatStatus) => {
     return;
   }
   for (i = 0; i < 4; i++) {
+    // changes notes to start from the fourth
     x = array.pop();
     array.unshift(x);
   }
@@ -169,11 +177,11 @@ const addDorianAccent = (scale, flatStatus) => {
 }
 
 const addPhrygianAccent = (scale, flatStatus) => {
-  if (flatStatus === true) {
-
+  if (flatStatus === false) {
+    scale[4] += '#';
     return
   }
-  
+  scale[1] += 'b';
 }
 
 const addMinorAccent = (scale, flatStatus) => {
@@ -188,4 +196,7 @@ module.exports = {
   getMajorScale, getMinorScale, majorNotes, minorNotes
 };
 
-console.log(getDorianScale('E'));
+console.log(getPhrygianScale('A'));
+console.log(getPhrygianScale('E'));
+console.log(getPhrygianScale('Bb'));
+console.log(getPhrygianScale('C#'));
