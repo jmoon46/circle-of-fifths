@@ -82,15 +82,21 @@ const getPhrygianScale = endNote => {
   return newScale;
 };
 
-// const getLydianScale = endNote => {
-//   const newScale = [...lydianNotes];
-//   if () {
-
-//   } else {
-    
-//   }
-//   return newScale;
-// };
+const getLydianScale = endNote => {
+  const newScale = [...lydianNotes];
+  if (endNote.includes('b')) {
+    while (newScale[0] !== endNote) {
+      shiftArray(newScale, true);
+      addLydianAccent(newScale, true);
+    }
+  } else {
+    while (newScale[0] !== endNote) {
+      shiftArray(newScale, false);
+      addLydianAccent(newScale, false);
+    }
+  }
+  return newScale;
+};
 
 // const getMixolydianScale = endNote => {
 //   const newScale = [...mixolydianNotes];
@@ -184,6 +190,14 @@ const addPhrygianAccent = (scale, flatStatus) => {
   scale[1] += 'b';
 }
 
+const addLydianAccent = (scale, flatStatus) => {
+  if (flatStatus === true) {
+    scale[0] += 'b';
+    return
+  }
+  scale[3] += '#';
+}
+
 const addMinorAccent = (scale, flatStatus) => {
   if (flatStatus === true) {
     scale[5] += 'b';
@@ -196,7 +210,7 @@ module.exports = {
   getMajorScale, getMinorScale, majorNotes, minorNotes
 };
 
-console.log(getPhrygianScale('A'));
-console.log(getPhrygianScale('E'));
-console.log(getPhrygianScale('Bb'));
-console.log(getPhrygianScale('C#'));
+console.log(getLydianScale('F'));
+console.log(getLydianScale('C'));
+console.log(getLydianScale('Ab'));
+console.log(getLydianScale('B'));
