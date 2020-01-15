@@ -30,7 +30,7 @@ const shiftForMode = ((startScale, mode) => {
 });
 
 
-shiftForMode(majorNotes, "Dorian");
+// shiftForMode(majorNotes, "Dorian");
 
 const getMajorScale = endNote => {
   const newScale = [...majorNotes];
@@ -50,15 +50,21 @@ const getMajorScale = endNote => {
   return newScale;
 };
 
-// const getDorianScale = endNote => {
-//   const newScale = [...dorianNotes];
-//   if () {
-
-//   } else {
-
-//   }
-//   return newScale;
-// };
+const getDorianScale = endNote => {
+  const newScale = [...dorianNotes];
+  if (endNote === 'G' || endNote === 'C' || endNote === 'F' || endNote.includes('b')) {
+    while (newScale[0] !== endNote) {
+      shiftArray(newScale, true);
+      addDorianAccent(newScale, true);
+    }
+  } else {
+    while (newScale[0] !== endNote) {
+      shiftArray(newScale, false);
+      addDorianAccent(newScale, false);
+    }
+  }
+  return newScale;
+};
 
 // const getPhrygianScale = endNote => {
 //   const newScale = [...phrygianNotes];
@@ -154,6 +160,22 @@ const addMajorAccent = (scale, flatStatus) => {
   scale[6] += '#';
 };
 
+const addDorianAccent = (scale, flatStatus) => {
+  if (flatStatus === true) {
+    scale[2] += 'b';
+    return
+  }
+  scale[5] += '#';
+}
+
+const addPhrygianAccent = (scale, flatStatus) => {
+  if (flatStatus === true) {
+
+    return
+  }
+  
+}
+
 const addMinorAccent = (scale, flatStatus) => {
   if (flatStatus === true) {
     scale[5] += 'b';
@@ -165,3 +187,5 @@ const addMinorAccent = (scale, flatStatus) => {
 module.exports = {
   getMajorScale, getMinorScale, majorNotes, minorNotes
 };
+
+console.log(getDorianScale('E'));
